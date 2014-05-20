@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="../socket.io/socket.io.js"></script>
+    <script src="../javascripts/socketclient.js"></script>
+    <script>
+        var socket = new SocketClient("http://localhost");
+
+        setInterval(function () {
+            socket.send_message({
+                path: "testpath",
+                message: "test_message"
+            });
+        }, 1000 / 50);
+    </script>
+</body>
+</html>
