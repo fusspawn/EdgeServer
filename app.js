@@ -12,12 +12,18 @@ var redis = require("redis");
 var app = express();
 var socket_cache = {};
 var redis_client = redis.createClient(6379, "evedata.cloudapp.net");
+
+    redis_client.on("error", function (err) {
+        console.log("Redis Error: " + err);
+    });
+
     redis_client.auth("trasher03!", function (err, response) {
         if (err)
             throw new err;
         else
             console.log(response);
     });
+
 
 
 // all environments
@@ -82,7 +88,7 @@ function pump_output()
                     if (results == null)
                         return;
 
-                    socket_cache[index].emit("packet", results);
+                    socket_cache[index].emit("packet", JSON.parse(results));
                 }
             });
         });

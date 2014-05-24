@@ -31,7 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.js" />
-    <Compile Include="public\javascripts\socketclient.js" />
+    <Compile Include="public\javascripts\clientbundle.js" />
+    <Compile Include="public\javascripts\client\main.js" />
+    <Compile Include="public\javascripts\client\socketclient.js" />
     <Compile Include="routes\index.js" />
     <Compile Include="routes\user.js" />
     <Content Include="package.json" />
@@ -47,6 +49,7 @@
     <Folder Include="public\images\" />
     <Folder Include="public\javascripts\" />
     <Folder Include="public\html\" />
+    <Folder Include="public\javascripts\client\" />
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
