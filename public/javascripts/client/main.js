@@ -1,10 +1,13 @@
 ﻿var sockets = require("./socketclient.js");
 var game_client = require("./gameclient.js");
-var socket = new sockets();
 
-socket.handlers["gameserver.connection"] = function (data) {
+
+var network = new sockets();
+var client = new game_client();
+
+network.handlers["gameserver.connection"] = function (data) {
     console.log("GameServerConnectionChanged - New Status: ", data.message);
-    game_client.start(socket);
+    client.start(network);
 };
 
 setInterval(function () {

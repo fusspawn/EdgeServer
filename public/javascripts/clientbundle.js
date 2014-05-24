@@ -1,9 +1,17 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+function GameClient() {
+}
+},{}],2:[function(require,module,exports){
 var sockets = require("./socketclient.js");
-var socket = new sockets();
+var game_client = require("./gameclient.js");
 
-socket.handlers["gameserver.connection"] = function (data) {
+
+var network = new sockets();
+var client = new game_client();
+
+network.handlers["gameserver.connection"] = function (data) {
     console.log("GameServerConnectionChanged - New Status: ", data.message);
+    client.start(network);
 };
 
 setInterval(function () {
@@ -12,7 +20,7 @@ setInterval(function () {
         message: "test_message"
     });
 }, 1000 / 50);
-},{"./socketclient.js":2}],2:[function(require,module,exports){
+},{"./gameclient.js":1,"./socketclient.js":3}],3:[function(require,module,exports){
 function SocketClient(host)
 {
     this.socket = io.connect(host);
@@ -49,4 +57,4 @@ function SocketClient(host)
 };
 
 module.exports = SocketClient;
-},{}]},{},[1])
+},{}]},{},[2])

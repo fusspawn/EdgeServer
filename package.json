@@ -19,6 +19,7 @@
       "watchify": "*"
   },
   "scripts":  {
-      "build-client":  "browserify public/javascripts/client/main.js > public/javascripts/clientbundle.js"
+      "build":  "browserify public/javascripts/client/main.js > public/javascripts/clientbundle.js",
+      "watch":  "watchify public/javascripts/client/main.js -o public/javascripts/clientbundle.js"
   }
 }

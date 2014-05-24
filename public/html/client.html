@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Game Client Test </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/style.css" />
+
+    <!-- External Refs -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//lib.ivank.net/ivank.js"></script>
+
+    <!-- Local Refs -->
+    <script src="../socket.io/socket.io.js"></script>
+    <script src="../javascripts/clientbundle.js"></script>
+</head>
+<body>
+    <!-- 'fullscreen' canvas. client renders here -->
+    <canvas id="client-viewport" style="width: 100%; height: 100%">
+    </canvas>
+
+
+    <!-- Hidden div to contain the ui html -->
+    <div id="uicontainer" style="display:none;">
+     </div>
+</body>
+</html>
